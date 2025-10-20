@@ -6,5 +6,4 @@ set(CMAKE_CXX_STANDARD 20)
 add_executable(untitled1 main.cpp
         src/Simulation.cpp
         src/Simulation.h
-        src/math/Vector3.cpp
         src/math/Vector3.h)
