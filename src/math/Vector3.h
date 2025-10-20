@@ -40,6 +40,14 @@ public:
         return (*this - other).norm();
     }
 
+    [[nodiscard]] double distance2(const Vector3 &other) const {
+        const double dx = x - other.x;
+        const double dy = y - other.y;
+        const double dz = z - other.z;
+        return dx*dx + dy*dy + dz*dz;
+    }
+
+
     bool operator==(const Vector3 &other) const {
         return x == other.x && y == other.y && z == other.z;
     }

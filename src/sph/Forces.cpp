@@ -3,3 +3,9 @@
 //
 
 #include "Forces.h"
+
+void Forces::compute_densities() {
+    for (Particle& particle : *particles) {
+        double density = 0;
+    }
+}

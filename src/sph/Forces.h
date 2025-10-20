@@ -11,6 +11,16 @@ class Forces {
 public:
     explicit Forces(Simulation simulation);
 
+    void compute_densities();
+
+    void compute_non_pressure_forces();
+
+    void compute_pressure_forces();
+
+    void compute_pressure_gradient();
+
+    void compute_velocity_laplacian();
+
 private:
     Kernel *kernel;
 

@@ -15,4 +15,7 @@ add_executable(untitled1 main.cpp
         src/sph/Forces.h
         src/sph/Kernel.h
         src/sph/CubicSplineKernel.h
+        src/math/NeighbourHoodSearch.h
+        src/math/UniformGridSearch.cpp
+        src/math/UniformGridSearch.h
 )
