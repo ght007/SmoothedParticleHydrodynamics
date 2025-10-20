@@ -7,6 +7,15 @@
 
 
 class Simulation {
+public:
+    static double constexpr PARTICLE_MASS = 1;
+
+    static double constexpr PARTICLE_RADIUS = 0.05;
+
+    static double constexpr SMOOTHING_LENGTH = 0.1;
+
+    static double constexpr GRAVITY = 9.81;
+
 
 };
 

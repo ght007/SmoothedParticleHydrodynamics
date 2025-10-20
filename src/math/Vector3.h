@@ -12,6 +12,8 @@ public:
     double y = 0;
     double z = 0;
 
+    Vector3() = default;
+
     Vector3(const double x, const double y, const double z) {
         this->x = x;
         this->y = y;
