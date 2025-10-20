@@ -8,4 +8,7 @@ add_executable(untitled1 main.cpp
         src/Simulation.h
         src/math/Vector3.h
         src/particles/Particle.h
+        src/math/TimeIntegrator.h
+        src/math/SemiImplicitEuler.cpp
+        src/math/SemiImplicitEuler.h
 )

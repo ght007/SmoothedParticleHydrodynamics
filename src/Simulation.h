@@ -4,6 +4,7 @@
 
 #ifndef UNTITLED1_SIMULATION_H
 #define UNTITLED1_SIMULATION_H
+#include "math/TimeIntegrator.h"
 
 
 class Simulation {
@@ -16,6 +17,11 @@ public:
 
     static double constexpr GRAVITY = 9.81;
 
+    std::vector<Particle> particles;
+
+    TimeIntegrator *time_integrator;
+
+    void simulation_loop() const;
 
 };
 
