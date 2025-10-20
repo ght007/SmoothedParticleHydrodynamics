@@ -11,17 +11,21 @@ public:
 
     Vector3 velocity{};
 
-    Vector3 forces{};
+    Vector3 force{};
 
     double mass = 0;
 
+    double density = 0;
+
+    double pressure = 0;
+
     double radius = 0;
 
-    bool isBoundary = false;
+    bool is_boundary = false;
 
     explicit Particle(const double mass, const double radius, const bool isBoundary=false) {
         this->mass = mass;
         this->radius = radius;
-        this->isBoundary = isBoundary;
+        this->is_boundary = isBoundary;
     }
 };

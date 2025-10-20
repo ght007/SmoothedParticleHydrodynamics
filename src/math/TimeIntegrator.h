@@ -9,7 +9,7 @@
 
 class TimeIntegrator {
 public:
-    explicit TimeIntegrator(const std::vector<Particle> &particles) {
+    explicit TimeIntegrator(std::vector<Particle *> *particles) {
         this->particles = particles;
     }
 
@@ -18,7 +18,7 @@ public:
     virtual ~TimeIntegrator() = default;
 
 protected:
-    std::vector<Particle> particles;
+    std::vector<Particle *> *particles;
 };
 
 

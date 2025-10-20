@@ -5,33 +5,36 @@
 #ifndef UNTITLED1_SIMULATION_H
 #define UNTITLED1_SIMULATION_H
 #include "math/TimeIntegrator.h"
+#include "sph/Forces.h"
 #include "sph/Kernel.h"
 
-
+class NeighbourHoodSearch;
+class Forces;
 class Simulation {
 public:
-    static double constexpr PARTICLE_MASS = 1;
+    static double constexpr PARTICLE_MASS = 0.02; // kg, small particle mass
+    static double constexpr PARTICLE_RADIUS = 0.02; // m, typical spacing between particles
+    static double constexpr SMOOTHING_LENGTH = 0.35; // m, usually 2x particle radius
+    static double constexpr GRAVITY = 9.81; // m/s^2, Earth gravity
+    static double constexpr MU = 0.001; // Pa·s, viscosity for water (~1e-3)
+    static double constexpr REST_DENSITY = 10.0; // kg/m^3, water density
+    static double constexpr SPEED_OF_SOUND = 20.0; // m/s, artificial speed of sound for compressible SPH
 
-    static double constexpr PARTICLE_RADIUS = 0.05;
 
-    static double constexpr SMOOTHING_LENGTH = 0.1;
-
-    static double constexpr GRAVITY = 9.81;
-
-    std::vector<Particle> *particles;
+    std::vector<Particle *> *particles;
 
     TimeIntegrator *time_integrator;
 
-    Kernel* kernel;
+    Kernel *kernel;
 
-    Simulation(std::vector<Particle> *particles, TimeIntegrator *time_integrator, Kernel *kernel) {
-        this->particles = particles;
-        this->time_integrator = time_integrator;
-        this->kernel = kernel;
-    };
+    NeighbourHoodSearch *neighbourhood_search;
 
-    void simulation_loop() const;
+    Forces *forces;
 
+    Simulation(std::vector<Particle *> *particles, TimeIntegrator *time_integrator, Kernel *kernel,
+               NeighbourHoodSearch *neighbourhood_search);
+
+    void simulation_step(double dt) const;
 };
 
 

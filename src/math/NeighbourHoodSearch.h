@@ -10,15 +10,16 @@
 
 class NeighbourHoodSearch {
 public:
-    explicit NeighbourHoodSearch(const std::vector<Particle> &particles) : particles(particles) {
-    }
+    explicit NeighbourHoodSearch(const std::vector<Particle *> * particles) {
+        this->particles = particles;
+    };
 
-    virtual std::vector<Particle> find_neighbours(Particle particle) = 0;
+    virtual std::vector<Particle *> find_neighbours(const Particle *particle) = 0;
 
     virtual ~NeighbourHoodSearch() = default;
 
 protected:
-    std::vector<Particle> particles;
+    const std::vector<Particle *> *particles;
 };
 
 #endif //UNTITLED1_NEIGHBOURHOODSEARCH_H

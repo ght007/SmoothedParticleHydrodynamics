@@ -3,6 +3,7 @@
 #include <unordered_map>
 #include <cmath>
 #include "NeighbourHoodSearch.h"
+#include "../Simulation.h"
 
 struct Int3 {
     int x, y, z;
@@ -23,14 +24,15 @@ struct Int3Hash {
 
 class UniformGridSearch final : public NeighbourHoodSearch {
 public:
-    explicit UniformGridSearch(const std::vector<Particle> &particles, double cell_size);
+    UniformGridSearch(const std::vector<Particle *> *particles, double cell_size, double smoothing_length);
 
-    std::vector<Particle> find_neighbours(Particle particle) override;
+    std::vector<Particle *> find_neighbours(const Particle *particle) override;
 
-    void update_particles(const std::vector<Particle> &new_particles);
+    void update_particles(const std::vector<Particle *> *new_particles);
 
 private:
     double cell_size;
+    double smoothing_length;
     std::unordered_map<Int3, std::vector<int>, Int3Hash> grid;
 
     void build_grid();

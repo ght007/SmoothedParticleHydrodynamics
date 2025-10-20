@@ -9,13 +9,13 @@
 
 class SemiImplicitEuler final : public TimeIntegrator {
 public:
-    explicit SemiImplicitEuler(const std::vector<Particle> &particles) : TimeIntegrator(particles) {
+    explicit SemiImplicitEuler(std::vector<Particle *> *particles) : TimeIntegrator(particles) {
     }
 
-    void integrate(double dt) override {
-        for (Particle &p: particles) {
-            p.velocity = p.velocity + dt / p.mass * p.forces;
-            p.position = p.position + dt * p.velocity;
+    void integrate(const double dt) override {
+        for (Particle *p: *particles) {
+            p->velocity = p->velocity + dt / p->mass * p->force;
+            p->position = p->position + dt * p->velocity;
         }
     }
 };
