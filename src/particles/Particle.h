@@ -3,7 +3,6 @@
 //
 #pragma once
 
-#include "../Simulation.h"
 #include "../math/Vector3.h"
 
 class Particle {
@@ -20,7 +19,7 @@ public:
 
     bool isBoundary = false;
 
-    explicit Particle(const double mass=Simulation::PARTICLE_MASS, const double radius=Simulation::PARTICLE_RADIUS, const bool isBoundary=false) {
+    explicit Particle(const double mass, const double radius, const bool isBoundary=false) {
         this->mass = mass;
         this->radius = radius;
         this->isBoundary = isBoundary;

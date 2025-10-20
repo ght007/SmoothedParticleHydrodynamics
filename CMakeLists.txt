@@ -11,4 +11,8 @@ add_executable(untitled1 main.cpp
         src/math/TimeIntegrator.h
         src/math/SemiImplicitEuler.cpp
         src/math/SemiImplicitEuler.h
+        src/sph/Forces.cpp
+        src/sph/Forces.h
+        src/sph/Kernel.h
+        src/sph/CubicSplineKernel.h
 )
